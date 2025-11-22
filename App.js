@@ -327,12 +327,22 @@ if (p.y < 0) {
         <div className="player" style={renderPlayerStyle()} />
 
         {/* Obstacles */}
-        {obstaclesRef.current.map((o) => (
-          <React.Fragment key={o.id}>
-            <div className="pipe top" style={renderObstacleStyle(o, true)} />
-            <div className="pipe bottom" style={renderObstacleStyle(o, false)} />
-          </React.Fragment>
-        ))}
+        {obstaclesRef.current.map((o, idx) => (
+  <React.Fragment key={o.id}>
+    {/* Shadow for next obstacle */}
+    {idx === 0 && <div className="pipe top" style={{
+      ...renderObstacleStyle(o, true),
+      opacity: 0.5
+    }} />}
+    {idx === 0 && <div className="pipe bottom" style={{
+      ...renderObstacleStyle(o, false),
+      opacity: 0.5
+    }} />}
+    <div className="pipe top" style={renderObstacleStyle(o, true)} />
+    <div className="pipe bottom" style={renderObstacleStyle(o, false)} />
+  </React.Fragment>
+))}
+
 
         {/* overlay messages */}
         {!running && !gameOver && (
@@ -358,6 +368,7 @@ if (p.y < 0) {
 }
 
 export default App;
+
 
 
 
