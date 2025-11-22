@@ -1,0 +1,86 @@
+/* App.css - basic styling for the game */
+.app-root {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px;
+  gap: 12px;
+}
+
+.hud {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-area {
+  position: relative;
+  background: linear-gradient(#bfefff, #87CEFA);
+  border: 4px solid #333;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  margin-top: 8px;
+}
+
+/* player */
+.player {
+  position: absolute;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffdd57);
+  border-radius: 6px;
+  border: 2px solid #333;
+  box-sizing: border-box;
+  display: block;
+  z-index: 10;
+  transform: translateZ(0);
+}
+
+/* pipes */
+.pipe {
+  position: absolute;
+  background: linear-gradient(#2c9e4b, #1f7a36);
+  border-left: 6px solid #184d26;
+  border-right: 6px solid #184d26;
+  box-sizing: border-box;
+}
+
+.pipe.top {
+  border-bottom: 10px solid #184d26;
+}
+
+.pipe.bottom {
+  border-top: 10px solid #184d26;
+}
+
+/* overlay */
+.overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 50;
+}
+
+.overlay button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: none;
+  background: #ff7b7b;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.footer {
+  width: 700px;
+  text-align: center;
+  color: #333;
+  margin-top: 6px;
+}
