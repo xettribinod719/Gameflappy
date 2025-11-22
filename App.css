@@ -29,7 +29,7 @@
   position: absolute;
   background: radial-gradient(circle at 30% 30%, #fff, #ffdd57);
   border-radius: 6px;
-  border: 2px solid #333;
+border: 3px solid #333;
   box-sizing: border-box;
   display: block;
   z-index: 10;
@@ -84,3 +84,4 @@
   color: #333;
   margin-top: 6px;
 }
+
