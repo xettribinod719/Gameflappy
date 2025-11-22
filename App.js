@@ -77,7 +77,7 @@ function App() {
     setGameOver(didLose);
     if (score > best) {
       setBest(score);
-      localStorage.setItem("sudoku_game_best", String(score));
+    localStorage.getItem("react_jump_best"));
     }
     if (animationRef.current) cancelAnimationFrame(animationRef.current);
   };
@@ -347,3 +347,4 @@ function App() {
 }
 
 export default App;
+
