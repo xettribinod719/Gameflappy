@@ -66,7 +66,9 @@ function App() {
   // Start game
   const startGame = () => {
     resetGame();
-    setRunning(true);
+animationRef.current && cancelAnimationFrame(animationRef.current);
+setRunning(true);
+
     lastTimeRef.current = null;
     animationRef.current = requestAnimationFrame(loop);
   };
@@ -347,4 +349,5 @@ function App() {
 }
 
 export default App;
+
 
