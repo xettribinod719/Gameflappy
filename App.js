@@ -95,9 +95,11 @@ setRunning(true);
         e.preventDefault();
       }
       // Jump on keydown of Space or ArrowUp
-      if (running && (e.code === "Space" || e.code === "ArrowUp")) {
-        // simple impulse jump
-        playerRef.current.vy = JUMP_VELOCITY;
+if (running && (e.code === "Space" || e.code === "ArrowUp")) {
+  playerRef.current.vy = JUMP_VELOCITY;
+  playerRef.current.y -= 2; // instant lift
+}
+
       }
       // restart on Enter if game over
       if (!running && gameOver && e.code === "Enter") {
@@ -349,5 +351,6 @@ setRunning(true);
 }
 
 export default App;
+
 
 
