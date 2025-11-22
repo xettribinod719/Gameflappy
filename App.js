@@ -175,7 +175,8 @@ if (running && (e.code === "Space" || e.code === "ArrowUp")) {
     // gravity & vertical
     // If space or ArrowUp was pressed on keydown, jump impulse applied there.
     p.vy += GRAVITY * (dt / 16.6667); // scale gravity by frame time; 16.6667ms ~= 60fps
-    p.y += p.vy * (dt / 16.6667);
+   p.vy += GRAVITY * Math.min(dt / 16.6667, 2);
+
 
     // floor and ceiling
     if (p.y + p.height > GAME_HEIGHT) {
@@ -351,6 +352,7 @@ if (running && (e.code === "Space" || e.code === "ArrowUp")) {
 }
 
 export default App;
+
 
 
 
