@@ -32,14 +32,17 @@
 /* player */
 .player {
   position: absolute;
-  background: radial-gradient(circle at 30% 30%, #fff, #ffdd57);
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #ffdd57);
   border-radius: 6px;
-border: 3px solid #333;
+  border: 3px solid #333;
   box-sizing: border-box;
-  display: block;
   z-index: 10;
   transform: translateZ(0);
+  transition: top 100ms linear; 
 }
+
 
 /* pipes */
 .pipe {
@@ -89,6 +92,7 @@ border-right: 4px solid #184d26;
   color: #333;
   margin-top: 6px;
 }
+
 
 
 
