@@ -313,10 +313,12 @@ if (p.y < 0) {
       </div>
 
       <div
-        className="game-area"
-        style={{ width: GAME_WIDTH, height: GAME_HEIGHT }}
-        tabIndex={0}
-      >
+  className="game-area"
+  ref={(el) => el && el.focus()} // auto-focus for keyboard
+  style={{ width: GAME_WIDTH, height: GAME_HEIGHT }}
+  tabIndex={0}
+>
+
         {/* Player */}
         <div className="player" style={renderPlayerStyle()} />
 
@@ -352,6 +354,7 @@ if (p.y < 0) {
 }
 
 export default App;
+
 
 
 
