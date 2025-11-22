@@ -272,15 +272,19 @@ if (p.y < 0) {
   const onRestartClick = () => startGame();
 
   // Render helpers convert world coords to inline CSS
-  const renderPlayerStyle = () => {
-    const p = playerRef.current;
-    return {
-      left: `${p.x}px`,
-      top: `${p.y}px`,
-      width: `${p.width}px`,
-      height: `${p.height}px`,
-    };
+ const renderPlayerStyle = () => {
+  const p = playerRef.current;
+  return {
+    left: `${p.x}px`,
+    top: `${p.y}px`,
+    width: `${p.width}px`,
+    height: `${p.height}px`,
+    background: p.vy < 0 
+      ? 'radial-gradient(circle at 30% 30%, #ffdd57, #fff)' 
+      : 'radial-gradient(circle at 30% 30%, #fff, #ffdd57)', // change color when jumping
   };
+};
+
 
   const renderObstacleStyle = (o, top = true) => {
     if (top) {
@@ -354,6 +358,7 @@ if (p.y < 0) {
 }
 
 export default App;
+
 
 
 
