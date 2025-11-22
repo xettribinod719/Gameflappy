@@ -173,22 +173,22 @@ if (running && (e.code === "Space" || e.code === "ArrowUp")) {
     p.x = Math.max(0, Math.min(GAME_WIDTH - p.width, p.x));
 
     // gravity & vertical
-    // If space or ArrowUp was pressed on keydown, jump impulse applied there.
-    p.vy += GRAVITY * (dt / 16.6667); // scale gravity by frame time; 16.6667ms ~= 60fps
-   p.vy += GRAVITY * Math.min(dt / 16.6667, 2);
+p.vy += GRAVITY * Math.min(dt / 16.6667, 2); // smooth gravity scaling
+p.y += p.vy * (dt / 16.6667);
 
+// clamp vertical position
+p.y = Math.max(0, Math.min(GAME_HEIGHT - p.height, p.y));
 
-    // floor and ceiling
-    if (p.y + p.height > GAME_HEIGHT) {
-      p.y = GAME_HEIGHT - p.height;
-      p.vy = 0;
-      // if hits floor we keep playing
-    }
-    if (p.y < 0) {
-      p.y = 0;
-      p.vy = 0;
-    }
-  };
+// floor and ceiling (optional redundancy)
+if (p.y + p.height > GAME_HEIGHT) {
+  p.y = GAME_HEIGHT - p.height;
+  p.vy = 0;
+}
+if (p.y < 0) {
+  p.y = 0;
+  p.vy = 0;
+}
+
 
   // Update obstacles positions, scoring
   const updateObstacles = (dt) => {
@@ -352,6 +352,7 @@ if (running && (e.code === "Space" || e.code === "ArrowUp")) {
 }
 
 export default App;
+
 
 
 
